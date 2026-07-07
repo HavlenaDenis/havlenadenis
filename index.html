@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denis Havlena — obchod & rozvoj podnikání</title>
+<meta name="description" content="Denis Havlena — odpovídám za obchod a rozvoj podnikání v IT se zaměřením na serverová řešení.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,16..72,400;0,16..72,500;1,16..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bone:#F3F5F9;
+    --bone-2:#FCFDFF;
+    --ink:#13151B;
+    --ink-soft:#545A68;
+    --muted:#8B909E;
+    --line:#E4E7EE;
+    --line-soft:rgba(19,21,27,.07);
+    --accent:#2B50F6;
+    --accent-deep:#1E3AC9;
+    --accent-tint:rgba(43,80,246,.08);
+    --glow:#93A9FF;
+    --disp:"Schibsted Grotesk",system-ui,sans-serif;
+    --serif:"Newsreader",Georgia,serif;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bone);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:var(--bone)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 36px}
+  .eyebrow{font-family:var(--disp);font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(243,245,249,.8);backdrop-filter:blur(10px) saturate(150%);border-bottom:1px solid var(--line-soft)}
+  .hbar{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .mark{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:-.02em}
+  .mark .h{color:var(--accent)}
+  .hnav{display:flex;gap:30px;font-family:var(--disp);font-weight:500;font-size:14px}
+  .hnav a{color:var(--ink-soft);transition:color .2s}
+  .hnav a:hover{color:var(--accent)}
+  .hcta{font-family:var(--disp);font-weight:600;font-size:14px;color:var(--accent)}
+  @media (max-width:720px){.hnav{display:none}}
+
+  .hero{padding:148px 0 70px}
+  .hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(48px,7.4vw,92px);line-height:.98;letter-spacing:-.035em;margin:20px 0 0}
+  .lead{font-family:var(--serif);font-size:clamp(20px,2.3vw,26px);line-height:1.5;color:var(--ink-soft);max-width:42ch;margin-top:22px}
+  .lead b{color:var(--ink);font-weight:500}
+  .role-line{font-family:var(--disp);font-weight:500;font-size:clamp(15px,1.7vw,18px);color:var(--ink-soft);margin-top:16px;line-height:1.5;max-width:34ch}
+  .role-line span{display:block;font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-top:8px}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:600;font-size:15px;background:var(--accent);color:var(--bone);padding:14px 24px;border-radius:999px;transition:transform .25s,background .25s}
+  .btn:hover{background:var(--accent-deep);transform:translateY(-2px)}
+  .btn .ar{transition:transform .25s}
+  .btn:hover .ar{transform:translate(3px,-1px)}
+  .hero-cta{margin-top:34px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .ghostlink{font-family:var(--disp);font-weight:600;font-size:15px;color:var(--ink-soft);border-bottom:1.5px solid var(--line);padding-bottom:3px;transition:color .2s,border-color .2s}
+  .ghostlink:hover{color:var(--accent);border-color:var(--accent)}
+
+  .portrait{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:var(--bone-2);border:1px solid var(--line)}
+  .portrait .glow{position:absolute;inset:-30% -20% auto auto;width:80%;height:80%;border-radius:50%;background:radial-gradient(circle,var(--glow) 0%,rgba(247,198,106,0) 68%);filter:blur(8px);opacity:.5;z-index:0}
+  .portrait img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+  .portrait .ph{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--muted)}
+  .portrait .ph .big{font-family:var(--disp);font-weight:700;font-size:84px;letter-spacing:-.03em;color:var(--ink);opacity:.12}
+  .portrait .ph .note{font-family:var(--disp);font-weight:500;font-size:13px;letter-spacing:.04em}
+  @media (max-width:720px){.hero .grid{grid-template-columns:1fr;gap:38px}.portrait{max-width:360px}}
+
+  section.s{padding:92px 0;border-top:1px solid var(--line-soft)}
+  .s-head{display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start;margin-bottom:14px}
+  .s-head h2{font-family:var(--disp);font-weight:700;font-size:clamp(28px,3.8vw,46px);letter-spacing:-.03em;line-height:1.02}
+  @media (max-width:720px){.s-head{grid-template-columns:1fr;gap:14px}}
+
+  .story{display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
+  .story .label .eyebrow{display:block;margin-bottom:10px}
+  .story .label h2{font-family:var(--disp);font-weight:700;font-size:clamp(26px,3vw,38px);letter-spacing:-.03em;line-height:1.04}
+  .story .narrative{font-size:clamp(19px,2.1vw,23px);line-height:1.62;color:var(--ink)}
+  .story .narrative p+p{margin-top:20px}
+  .story .narrative em{font-style:italic;color:var(--accent)}
+  @media (max-width:720px){.story{grid-template-columns:1fr;gap:16px}}
+
+  .about-head{margin-bottom:38px}
+  .about-head .eyebrow{display:block;margin-bottom:12px}
+  .about-head h2{font-family:var(--disp);font-weight:700;font-size:clamp(30px,5vw,54px);letter-spacing:-.03em;line-height:1.04}
+  .about-body{max-width:66ch;font-size:clamp(17px,1.5vw,19px);line-height:1.72;color:var(--ink-soft)}
+  .about-body p+p{margin-top:18px}
+  .about-body .about-lead{font-size:clamp(21px,2.4vw,27px);line-height:1.46;color:var(--ink);margin-bottom:28px}
+  .about-body em{font-style:normal;font-weight:500;color:var(--accent)}
+
+  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:14px}
+  .pillar{background:var(--bone-2);padding:30px 26px}
+  .pillar .n{font-family:var(--disp);font-weight:600;font-size:12px;letter-spacing:.14em;color:var(--accent)}
+  .pillar h3{font-family:var(--disp);font-weight:600;font-size:20px;letter-spacing:-.01em;margin:16px 0 10px;line-height:1.12}
+  .pillar p{font-size:15.5px;color:var(--ink-soft);line-height:1.55;font-family:var(--serif)}
+  @media (max-width:980px){.pillars{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.pillars{grid-template-columns:1fr}}
+
+  .tl{margin-top:14px;border-top:1px solid var(--line)}
+  .tlrow{display:grid;grid-template-columns:220px 1fr auto;gap:40px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);transition:padding-left .3s}
+  .tlrow:hover{padding-left:12px}
+  .tlrow .when{font-family:var(--disp);font-weight:600;font-size:13px;letter-spacing:.04em;color:var(--accent)}
+  .tlrow .what h3{font-family:var(--disp);font-weight:600;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em;line-height:1.05}
+  .tlrow .what p{font-size:16px;color:var(--ink-soft);margin-top:8px;max-width:56ch;font-family:var(--serif)}
+  .tlrow .role{font-family:var(--disp);font-weight:500;font-size:13px;color:var(--muted);text-align:right}
+  @media (max-width:720px){.tlrow{grid-template-columns:1fr;gap:8px}.tlrow .role{text-align:left}}
+
+  .media{display:flex;flex-wrap:wrap;align-items:center;gap:14px 36px;margin-top:4px}
+  .media .m{font-family:var(--disp);font-weight:600;font-size:clamp(17px,2vw,22px);letter-spacing:-.01em;color:var(--ink);opacity:.45;transition:opacity .2s}
+  .media .m:hover{opacity:1}
+  .media-note{font-family:var(--disp);font-weight:500;font-size:13px;letter-spacing:.04em;color:var(--muted);margin-bottom:18px;display:block;text-transform:uppercase}
+
+  #kontakt{background:var(--accent);color:var(--bone);border-radius:24px;margin:46px auto;max-width:var(--maxw);padding:74px 0;width:calc(100% - 72px)}
+  #kontakt .wrap{padding:0 48px;max-width:none}
+  #kontakt .eyebrow{color:rgba(243,245,249,.72)}
+  #kontakt h2{font-family:var(--disp);font-weight:700;font-size:clamp(30px,5vw,56px);letter-spacing:-.03em;line-height:1.05;margin:16px 0 0;max-width:18ch}
+  #kontakt .ksub{font-size:clamp(18px,2vw,22px);color:rgba(243,245,249,.84);margin-top:18px;max-width:46ch}
+  .kactions{display:flex;flex-wrap:wrap;gap:16px;margin-top:36px}
+  .kbtn{font-family:var(--disp);font-weight:600;font-size:16px;background:var(--bone);color:var(--accent-deep);padding:15px 28px;border-radius:999px;transition:transform .25s}
+  .kbtn:hover{transform:translateY(-2px)}
+  .kbtn.alt{background:transparent;color:var(--bone);border:1.5px solid rgba(243,245,249,.4)}
+  .kbtn.alt:hover{border-color:var(--bone)}
+  @media (max-width:560px){#kontakt .wrap{padding:0 28px}#kontakt{padding:54px 0;width:calc(100% - 40px)}}
+
+  footer{padding:30px 0 56px}
+  .frow{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-family:var(--disp);font-weight:500;font-size:13px;color:var(--muted)}
+  .frow .mark{font-size:18px}
+
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.16,1,.3,1)}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hbar">
+    <a href="#top" class="mark">Denis<span class="h"> Havlena</span></a>
+    <a href="#kontakt" class="hcta">Napište mi →</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap grid">
+      <div class="rv in">
+        <span class="eyebrow">Praha · Česká republika</span>
+        <h1>Denis<br>Havlena</h1>
+        <p class="role-line">Business • Strategie • Inovace</p>
+        <p class="lead"><b>Ahoj, jsem Denis.</b> Podílím se na strategickém rozvoji společností a pomáhám propojovat business, firemní procesy, technologie a inovace s cílem vytvářet dlouhodobou hodnotu.</p>
+        <div class="hero-cta">
+          <a href="#kontakt" class="btn">Napište mi <span class="ar">→</span></a>
+        </div>
+      </div>
+      <div class="portrait rv in">
+        <div class="glow"></div>
+        <!-- AŽ BUDEŠ MÍT FOTKU: smaž blok .ph níže a odkomentuj řádek:
+        <img src="denis.jpg" alt="Denis Havlena">
+        -->
+        <div class="ph">
+          <span class="big">DH</span>
+          <span class="note">Sem přijde tvoje fotka</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="wrap rv">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Pojďme se spojit.</h2>
+      <p class="ksub">Věřím, že nejlepší myšlenky vznikají sdílením zkušeností, různých pohledů a vzájemnou inspirací. Budu rád, když se ozvete.</p>
+      <div class="kactions">
+        <a class="kbtn" href="mailto:info@denishavlena.cz">info@denishavlena.cz</a>
+        <a class="kbtn alt" href="https://www.linkedin.com/in/denishavlena/" target="_blank" rel="noopener">LinkedIn →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap frow">
+    <span class="mark">D<span class="h">H</span></span>
+    <span>© <span id="y">2026</span> Denis Havlena · denishavlena.cz · Praha</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent=new Date().getFullYear();
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
+    document.querySelectorAll('.rv:not(.in)').forEach(function(el){io.observe(el);});
+  }else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});}
+</script>
+</body>
+</html>
